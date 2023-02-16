@@ -9,3 +9,7 @@ Anotes_tbl <- read_delim(file = "../data/Anotes.csv", delim = ",")
 Bdata_tbl <- read_delim(file = "../data/Bparticipants.dat", delim = "\t", col_names = c("casenum","parnum","stimver","datadate",paste0("q", 1:10)))
 Bnotes_tbl <- read_delim(file = "../data/Bnotes.txt", delim = "\t")
 
+# Data Cleaning
+Aclean_tbl <- Adata_tbl %>%
+  separate(qs, into = paste0("q", 1:5)) %>%
+  mutate(datadate = as.POSIXct(datadate, format = "%b %d %Y, %H:%M:%S"))
