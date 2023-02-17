@@ -16,3 +16,7 @@ Aclean_tbl <- Adata_tbl %>%
   mutate(q1 = as.integer(q1), q2 = as.integer(q2), q3 = as.integer(q3), q4 = as.integer(q4), q5 = as.integer(q5)) %>%
   inner_join(Anotes_tbl, by = "parnum") %>%
   filter(is.na(notes))
+ABclean_tbl <- Bdata_tbl %>%
+  mutate(datadate = as.POSIXct(datadate, format = "%b %d %Y, %H:%M:%S"))
+  
+  
